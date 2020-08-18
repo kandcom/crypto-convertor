@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from "@material-ui/core/FormControl"
 import InputLabel from "@material-ui/core/InputLabel"
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -73,7 +74,7 @@ function App() {
                 </Select>
               </FormControl>
             </div>
-            <h2>77,39 юаней</h2>
+            <Typography variant={"h5"} component="h5">77,39 юаней</Typography>
           </Paper>
         </Grid>
       </Grid>
