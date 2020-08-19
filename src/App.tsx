@@ -66,8 +66,9 @@ type TCoin = {
 function App() {
   const classes = useStyles();
   const [allCoins, setAllCoins] = useState<TCoin[]>([]);
-  useEffect(()=>{
-    axios
+  useEffect(() => {
+
+      axios
       .get(`https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD#`)
       .then( ({data}) => {
         const coins:TCoin[] = data.Data.map( (coin: any) => {
@@ -83,6 +84,7 @@ function App() {
         setAllCoins(coins)
       })
 
+      
   }, [])
   return (
     <Container className={classes.root} maxWidth="lg">
