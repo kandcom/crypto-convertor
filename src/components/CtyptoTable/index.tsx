@@ -16,10 +16,17 @@ interface ICryptoTable {
   classes: any;
   currenciesStore?: CurrenciesStore;
 }
+
+const colors:{[key: string]: string} = {
+    green: '#c6ff00',
+    red: '#f44336'
+}
+
 const CryptoTable = 
 inject('currenciesStore')
 (observer ( ({ classes, currenciesStore}: ICryptoTable)=>{
     const items: TCoin[] = currenciesStore?.getItems || [];
+    console.log(JSON.stringify(items, null, 2))
     React.useEffect(()=> {
         if(currenciesStore)
             currenciesStore.fetchCoins();
@@ -42,7 +49,7 @@ inject('currenciesStore')
                     <TableCell align="left"><img src={coin.imageUrl} alt={"coin icon"} className={classes.currencyImgIcon}/></TableCell>
                     <TableCell component="th" scope="row">{coin.name}</TableCell>
                     <TableCell align="left">{coin.fullName}</TableCell>
-                    <TableCell align="left">{coin.price}</TableCell>
+                    <TableCell style={{backgroundColor: colors.green}} align="left">{coin.price}</TableCell>
                     <TableCell align="left">{coin.volume24Hour}</TableCell>
                 </TableRow>
                 ))}
